@@ -3,22 +3,23 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateKelasTable extends Migration
 {
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('kelas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('role', 50);
+            $table->text('deskripsi');
+            $table->timestamp('jadwal');
+            $table->integer('harga');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('kelas');
     }
 }
+
